@@ -13,7 +13,15 @@ struct ContentView: View {
             LinearGradient(gradient: Gradient(colors: [.blue, .blue, .white]),
                            startPoint: .topLeading,
                            endPoint: .bottomTrailing)
-                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                Text("Rotterdam, ZH")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .padding()
+                Spacer()
+            }
         }
     }
 }
