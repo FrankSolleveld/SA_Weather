@@ -22,15 +22,7 @@ struct ContentView: View {
                     WeatherDayView(day: "FRI", imageName: "cloud.rain.fill", temp: 13)
                 }
                 Spacer()
-                Button {
-                    print("Button tapped")
-                } label: {
-                    Text("Change Day Time")
-                        .frame(width: 280, height: 50)
-                        .background(Color.white)
-                        .font(.system(size: 20, weight: .bold, design: .default))
-                        .cornerRadius(10)
-                }
+                WeatherButton(buttonTitle: "What is the weather?", foregroundColor: .blue, backgroundColor: .white)
                 Spacer()
             }
         }
@@ -109,5 +101,25 @@ struct HighlightedWeaterView: View {
                 .foregroundColor(.white)
         }
         .padding(.bottom, 40)
+    }
+}
+
+struct WeatherButton: View {
+    
+    var buttonTitle: String
+    var foregroundColor: Color
+    var backgroundColor: Color
+    
+    var body: some View {
+        Button {
+            print("Wouldn't you like to know, weather boy?")
+        } label: {
+            Text(buttonTitle)
+                .frame(width: 280, height: 50)
+                .foregroundColor(foregroundColor)
+                .background(backgroundColor)
+                .font(.system(size: 20, weight: .bold, design: .default))
+                .cornerRadius(10)
+        }
     }
 }
