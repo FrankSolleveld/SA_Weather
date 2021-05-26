@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var isNight = false
+    
     var body: some View {
         ZStack {
-            BackgroundView(topColor: .blue, bottomColor: Color("lightBlue"))
+            BackgroundView(isNight: $isNight)
             VStack {
                 CityTextView(city: "Rotterdam")
-                HighlightedWeaterView(imageName: "cloud.sun.fill", temp: 23)
+                HighlightedWeaterView(imageName: isNight ? "moon.stars.fill": "cloud.sun.fill", temp: isNight ? 12 : 23)
                 HStack(spacing: 25) {
                     WeatherDayView(day: "MON", imageName: "sun.haze.fill", temp: 25)
                     WeatherDayView(day: "TUE", imageName: "sun.max.fill", temp: 28)
@@ -22,7 +25,11 @@ struct ContentView: View {
                     WeatherDayView(day: "FRI", imageName: "cloud.rain.fill", temp: 13)
                 }
                 Spacer()
-                WeatherButton(buttonTitle: "What is the weather?", foregroundColor: .blue, backgroundColor: .white)
+                Button {
+                    isNight.toggle()
+                } label: {
+                    WeatherButton(buttonTitle: "Change Day Time", foregroundColor: .blue, backgroundColor: .white)
+                }
                 Spacer()
             }
         }
@@ -60,11 +67,10 @@ struct WeatherDayView: View {
 
 struct BackgroundView: View {
     
-    var topColor: Color
-    var bottomColor: Color
+    @Binding var isNight: Bool
     
     var body: some View {
-        LinearGradient(gradient: Gradient(colors: [topColor, bottomColor]),
+        LinearGradient(gradient: Gradient(colors: [isNight ? .black : .blue, isNight ? .gray : Color("lightBlue")]),
                        startPoint: .topLeading,
                        endPoint: .bottomTrailing)
             .edgesIgnoringSafeArea(.all)
