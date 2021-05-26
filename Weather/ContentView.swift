@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.blue, .blue, .white]),
+            LinearGradient(gradient: Gradient(colors: [.blue, Color("lightBlue")]),
                            startPoint: .topLeading,
                            endPoint: .bottomTrailing)
                 .edgesIgnoringSafeArea(.all)
@@ -20,6 +20,25 @@ struct ContentView: View {
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                     .padding()
+                VStack(spacing: 10) {
+                    Image(systemName: "cloud.sun.fill")
+                        .renderingMode(.original)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 180, height: 180)
+                    Text("23")
+                        .font(.system(size: 60, weight: .medium))
+                        .foregroundColor(.white)
+                }
+                .padding(.bottom, 40)
+             
+                HStack(spacing: 25) {
+                    WeatherDayView(day: "MON", imageName: "sun.haze.fill", temp: 25)
+                    WeatherDayView(day: "TUE", imageName: "sun.max.fill", temp: 28)
+                    WeatherDayView(day: "WED", imageName: "sun.max.fill", temp: 32)
+                    WeatherDayView(day: "THU", imageName: "cloud.bolt.rain.fill", temp: 30)
+                    WeatherDayView(day: "FRI", imageName: "cloud.rain.fill", temp: 13)
+                }
                 Spacer()
             }
         }
@@ -29,5 +48,28 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct WeatherDayView: View {
+    
+    var day: String
+    var imageName: String
+    var temp: Int
+    
+    var body: some View {
+        VStack {
+            Text(day)
+                .fontWeight(.medium)
+                .foregroundColor(.white)
+            Image(systemName: imageName)
+                .renderingMode(.original)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 30, height: 30)
+            Text("\(temp)")
+                .fontWeight(.medium)
+                .foregroundColor(.white)
+        }
     }
 }
