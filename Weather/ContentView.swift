@@ -10,28 +10,10 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.blue, Color("lightBlue")]),
-                           startPoint: .topLeading,
-                           endPoint: .bottomTrailing)
-                .edgesIgnoringSafeArea(.all)
+            BackgroundView(topColor: .blue, bottomColor: Color("lightBlue"))
             VStack {
-                Text("Rotterdam, ZH")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .padding()
-                VStack(spacing: 10) {
-                    Image(systemName: "cloud.sun.fill")
-                        .renderingMode(.original)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 180, height: 180)
-                    Text("23")
-                        .font(.system(size: 60, weight: .medium))
-                        .foregroundColor(.white)
-                }
-                .padding(.bottom, 40)
-             
+                CityTextView(city: "Rotterdam")
+                HighlightedWeaterView(imageName: "cloud.sun.fill", temp: 23)
                 HStack(spacing: 25) {
                     WeatherDayView(day: "MON", imageName: "sun.haze.fill", temp: 25)
                     WeatherDayView(day: "TUE", imageName: "sun.max.fill", temp: 28)
@@ -81,5 +63,51 @@ struct WeatherDayView: View {
                 .fontWeight(.medium)
                 .foregroundColor(.white)
         }
+    }
+}
+
+struct BackgroundView: View {
+    
+    var topColor: Color
+    var bottomColor: Color
+    
+    var body: some View {
+        LinearGradient(gradient: Gradient(colors: [topColor, bottomColor]),
+                       startPoint: .topLeading,
+                       endPoint: .bottomTrailing)
+            .edgesIgnoringSafeArea(.all)
+    }
+}
+
+struct CityTextView: View {
+    
+    var city: String
+    
+    var body: some View {
+        Text(city)
+            .font(.title)
+            .fontWeight(.bold)
+            .foregroundColor(.white)
+            .padding()
+    }
+}
+
+struct HighlightedWeaterView: View {
+    
+    var imageName: String
+    var temp: Int
+    
+    var body: some View {
+        VStack(spacing: 10) {
+            Image(systemName: imageName)
+                .renderingMode(.original)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 180, height: 180)
+            Text("\(temp)")
+                .font(.system(size: 60, weight: .medium))
+                .foregroundColor(.white)
+        }
+        .padding(.bottom, 40)
     }
 }
