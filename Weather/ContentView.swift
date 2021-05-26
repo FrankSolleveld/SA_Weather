@@ -40,6 +40,16 @@ struct ContentView: View {
                     WeatherDayView(day: "FRI", imageName: "cloud.rain.fill", temp: 13)
                 }
                 Spacer()
+                Button {
+                    print("Button tapped")
+                } label: {
+                    Text("Change Day Time")
+                        .frame(width: 280, height: 50)
+                        .background(Color.white)
+                        .font(.system(size: 20, weight: .bold, design: .default))
+                        .cornerRadius(10)
+                }
+                Spacer()
             }
         }
     }
