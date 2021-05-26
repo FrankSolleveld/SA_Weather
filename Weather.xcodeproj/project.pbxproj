@@ -11,6 +11,7 @@
 		95EF1481265E65B80066845C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF1480265E65B80066845C /* ContentView.swift */; };
 		95EF1483265E65BA0066845C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95EF1482265E65BA0066845C /* Assets.xcassets */; };
 		95EF1486265E65BA0066845C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95EF1485265E65BA0066845C /* Preview Assets.xcassets */; };
+		95EF148E265E77AC0066845C /* WeatherButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF148D265E77AC0066845C /* WeatherButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		95EF1482265E65BA0066845C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95EF1485265E65BA0066845C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		95EF1487265E65BA0066845C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95EF148D265E77AC0066845C /* WeatherButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 		95EF147D265E65B80066845C /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				95EF148F265E78070066845C /* Components */,
 				95EF147E265E65B80066845C /* WeatherApp.swift */,
 				95EF1480265E65B80066845C /* ContentView.swift */,
 				95EF1482265E65BA0066845C /* Assets.xcassets */,
@@ -67,6 +70,14 @@
 				95EF1485265E65BA0066845C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		95EF148F265E78070066845C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				95EF148D265E77AC0066845C /* WeatherButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +151,7 @@
 			files = (
 				95EF1481265E65B80066845C /* ContentView.swift in Sources */,
 				95EF147F265E65B80066845C /* WeatherApp.swift in Sources */,
+				95EF148E265E77AC0066845C /* WeatherButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
